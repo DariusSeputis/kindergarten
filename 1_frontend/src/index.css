@@ -1,0 +1,13 @@
+:root {
+  --navPrimary-color: #d1e78e;
+  --navSecondary-color: #7cc72e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 4.9rem;
+}
