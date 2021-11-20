@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import useEndpoints from '../../../../hooks/useEndpoints';
 import Input from '../../atoms/inputs_labels/Input';
 import Label from '../../atoms/inputs_labels/Label';
@@ -11,23 +11,24 @@ const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({ fullName: '' });
+  const [loading, setLoading] = useState(true);
 
   // - Side effects
   const loginURI = useEndpoints('login');
 
   // Custom function
-  const formSubmitHandler = (e) => {
+  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     axios
       .post(loginURI, { email, password })
-      .then((res) => {
+      .then((res: AxiosResponse<any>) => {
         setUserData(res.data.user);
         localStorage.setItem('user', res.data.token);
       })
-      .catch((err) => setMessage(err.response.data));
-    console.log('effektas');
+      .catch((err) => setMessage(err.response.data))
+      .finally(() => setLoading(false));
   };
   return (
     <StyledForm onSubmit={(e) => formSubmitHandler(e)}>
@@ -55,6 +56,7 @@ const LoginForm: React.FC = () => {
         <Input type='submit' value='Prisijungti' />
       </StyledLabelInputWrapper>
       {message && <p>{message}</p>}
+      {!loading && <p>{userData.fullName}</p>}
     </StyledForm>
   );
 };

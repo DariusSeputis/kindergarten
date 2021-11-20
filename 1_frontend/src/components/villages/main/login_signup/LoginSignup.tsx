@@ -5,7 +5,7 @@ import LoginForm from '../../../UI/organisms/forms/LoginForm';
 import SignupForm from '../../../UI/organisms/forms/SignupForm';
 import { StyledLoginSignup } from './LoginSignup.style';
 
-const LoginSignup = () => {
+const LoginSignup: React.FC = () => {
   return (
     <StyledLoginSignup>
       <h3>Prisijungti</h3>

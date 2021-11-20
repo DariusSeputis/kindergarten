@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { StyledVyturiukai } from './Vyturiukai.style';
 
-const Vyturiukai = () => {
+const Vyturiukai: React.FC = () => {
   const [message, setMessage] = useState('');
   useEffect(() => {
     const config = {
@@ -13,7 +13,7 @@ const Vyturiukai = () => {
     };
     axios
       .get('http://127.0.0.1:5000/users/test', config)
-      .then((res) => setMessage(res.data))
+      .then((res: AxiosResponse<any>) => setMessage(res.data))
       .catch((err) => console.log(err));
     return () => {};
   }, []);

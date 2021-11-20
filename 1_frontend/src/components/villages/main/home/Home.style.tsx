@@ -6,6 +6,6 @@ export const StyledHomePage = styled.main`
 
 export const StyledtestDiv = styled.div`
   width: 100%;
-  height: 30rem;
-  background-color: black;
+  height: 60rem;
+  background-color: #77b37a;
 `;

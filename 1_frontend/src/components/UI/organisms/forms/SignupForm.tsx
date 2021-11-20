@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import React, { useRef, useState } from 'react';
 import Input from '../../atoms/inputs_labels/Input';
 import Label from '../../atoms/inputs_labels/Label';
@@ -21,7 +21,7 @@ const SignupForm: React.FC = () => {
   const signupURI = useEndpoints('signup');
 
   // Custom function
-  const formSubmitHandler = (e) => {
+  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // VALIDATION
@@ -51,7 +51,7 @@ const SignupForm: React.FC = () => {
     if (password !== confirmPassword) {
       setPassword('');
       setConfirmPassword('');
-      refPassword.current.focus();
+      (refPassword.current as HTMLInputElement).focus();
       setMessage('Slaptažodžiai nesutampa');
       return;
     }
@@ -59,7 +59,7 @@ const SignupForm: React.FC = () => {
 
     axios
       .post(signupURI, { fullName, childsFullName, email, password })
-      .then((res) => setMessage(res.data))
+      .then((res: AxiosResponse<any>) => setMessage(res.data))
       .catch((err) => setMessage(err.response.data));
     console.log('effektas');
   };

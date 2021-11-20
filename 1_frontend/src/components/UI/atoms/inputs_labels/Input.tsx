@@ -3,11 +3,11 @@ import { StyledInput } from './Input.style';
 
 interface Props {
   type: string;
-  action?: () => void;
+  action?: React.ChangeEventHandler<HTMLInputElement>;
   pHolder?: string;
   id?: string;
   value?: string;
-  reference?: () => void;
+  reference?: React.RefObject<HTMLInputElement>;
 }
 
 const Input: React.FC<Props> = ({
