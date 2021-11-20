@@ -5,7 +5,7 @@ import Label from '../../atoms/inputs_labels/Label';
 import useEndpoints from '../../../../hooks/useEndpoints';
 import { StyledForm, StyledLabelInputWrapper } from './Form.style';
 
-const SignupForm = () => {
+const SignupForm: React.FC = () => {
   // Hooks
   // - State
   const [fullName, setFullName] = useState('');
@@ -15,7 +15,7 @@ const SignupForm = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
   // - Ref
-  const refPassword = useRef();
+  const refPassword = useRef<HTMLInputElement>(null);
 
   // - Side effects
   const signupURI = useEndpoints('signup');

@@ -5,7 +5,7 @@ import Input from '../../atoms/inputs_labels/Input';
 import Label from '../../atoms/inputs_labels/Label';
 import { StyledForm, StyledLabelInputWrapper } from './Form.style';
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   // Hooks
   // - State
   const [email, setEmail] = useState('');

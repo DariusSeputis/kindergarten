@@ -1,7 +1,23 @@
 import React from 'react';
 import { StyledInput } from './Input.style';
 
-const Input = ({ type, action, pHolder, id, value, reference }) => {
+interface Props {
+  type: string;
+  action?: () => void;
+  pHolder?: string;
+  id?: string;
+  value?: string;
+  reference?: () => void;
+}
+
+const Input: React.FC<Props> = ({
+  type,
+  action,
+  pHolder,
+  id,
+  value,
+  reference,
+}) => {
   return (
     <StyledInput
       onChange={action}

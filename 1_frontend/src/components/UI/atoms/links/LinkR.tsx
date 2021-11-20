@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyledLinkR } from './LinkR.style';
 
-const LinkR = ({ to, children, action }) => {
+interface Props {
+  to: string;
+  action?: () => void;
+}
+
+const LinkR: React.FC<Props> = ({ to, children, action }) => {
   return (
     <StyledLinkR to={to} onClick={action}>
       {children}

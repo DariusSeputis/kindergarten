@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyledLinkS } from './LinkS.style';
 
-const LinkS = ({ to, children, action }) => {
+interface Props {
+  to: string;
+  action: () => void;
+}
+
+const LinkS: React.FC<Props> = ({ to, children, action }) => {
   return (
     <StyledLinkS
       offset={-78}

@@ -7,13 +7,13 @@ import { StyledDropDown, StyledNav, StyledNavLinkWrapper } from './Nav.style';
 import useWindowSize from '../../../../hooks/useWindowSize';
 import { useLocation } from 'react-router-dom';
 
-const Nav = () => {
+const Nav: React.FC = () => {
   // Hooks
   // - RRD
   const location = useLocation();
   // - State
   // -- Local
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState<boolean>(false);
   // - Custom hooks
   const [width] = useWindowSize();
   // Custom functions

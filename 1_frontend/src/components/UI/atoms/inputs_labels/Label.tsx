@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyledLabel } from './Label.style';
 
-const Label = ({ forProp, text }) => {
+interface Props {
+  forProp: string;
+  text: string;
+}
+
+const Label: React.FC<Props> = ({ forProp, text }) => {
   return <StyledLabel htmlFor={forProp}>{text}</StyledLabel>;
 };
 

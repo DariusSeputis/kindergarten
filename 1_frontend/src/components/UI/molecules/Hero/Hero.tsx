@@ -3,7 +3,7 @@ import { StyledHero, StyledHeroImg, StyledHeroSpan } from './Hero.style';
 
 import heroImg from '../../../../images/hero.jpg';
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <StyledHero id='home'>
       <StyledHeroImg src={heroImg} alt='hero' />
