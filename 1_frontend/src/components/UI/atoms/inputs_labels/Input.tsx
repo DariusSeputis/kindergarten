@@ -3,6 +3,7 @@ import { StyledInput } from './Input.style';
 
 interface Props {
   type: string;
+  multiple?: boolean;
   action?: React.ChangeEventHandler<HTMLInputElement>;
   pHolder?: string;
   id?: string;
@@ -17,6 +18,7 @@ const Input: React.FC<Props> = ({
   id,
   value,
   reference,
+  multiple,
 }) => {
   return (
     <StyledInput
@@ -26,6 +28,7 @@ const Input: React.FC<Props> = ({
       placeholder={pHolder}
       id={id}
       value={value}
+      multiple={multiple}
     />
   );
 };

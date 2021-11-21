@@ -47,6 +47,11 @@ const Nav: React.FC = () => {
             </StyledNavLinkWrapper>
           ) : null}
           <StyledNavLinkWrapper>
+            <LinkR to='/uploadPhoto' action={hamburgerSwitch}>
+              Įkelti nuotraukas
+            </LinkR>
+          </StyledNavLinkWrapper>
+          <StyledNavLinkWrapper>
             <LinkR to='/loginSignup' action={hamburgerSwitch}>
               Prisijungti
             </LinkR>

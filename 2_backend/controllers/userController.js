@@ -36,7 +36,7 @@ export const loginUser = async (req, res) => {
   }
 
   const isMatching = await user.comparePassword(password);
-  console.log('userController', isMatching);
+  // console.log('userController', isMatching);
 
   const dataToSend = {
     userID: user._id,
@@ -53,6 +53,5 @@ export const loginUser = async (req, res) => {
 };
 // TESTAS GET
 export const TESTAS = (req, res) => {
-  console.log('testas', req.user);
-  res.send('PRAEJO');
+  res.send('TESTAS PRAEJO');
 };
