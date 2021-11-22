@@ -10,32 +10,40 @@ const PhotoUploadForm: React.FC = () => {
   const [files, setFiles] = useState([]);
   // Custom functions
   const putSelectedFilesInState = (e: any) => {
-    console.log(e.target);
-    setFiles(e.target.files[0]);
-    setTimeout(() => {
-      console.log(files);
-    }, 1000);
+    setFiles(e.target.files);
   };
   // - Upload photo(s)
-  async function postImage({ images }: any) {
-    const formData = new FormData();
-    formData.append('images', images);
-
-    const result = await axios.post(
-      'http://127.0.0.1:5000/multiple',
-      formData,
-      {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      }
-    );
-    return result.data;
-  }
+  // async function postImage(images: any) {
+  //   const result = await axios.post(
+  //     'http://127.0.0.1:5000/multiple',
+  //     formData,
+  //     {
+  //       headers: { 'Content-Type': 'multipart/form-data' },
+  //     }
+  //   );
+  //   return result.data;
+  // }
 
   const postPhotos = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const result = await postImage({ images: files });
-    console.log(result);
+    try {
+      const formData = new FormData();
+      for (let i = 0; i < files.length; i++) {
+        formData.append('images', files[i]);
+      }
+
+      const result = await axios.post(
+        'http://127.0.0.1:5000/multiple',
+        formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+      console.log(result);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
